@@ -91,10 +91,11 @@ You can clone and deploy your own version with one click:
 
 ---
 
-## 📄 License
+## 📄 License and Attribution
 
-Distributed under the **Creative Commons BY-NC 4.0** license.
-Commercial usage is not allowed without a [Once UI Pro](https://once-ui.com/pricing) license.
+This project uses [Once UI](https://once-ui.com) under the [Creative Commons BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).
+It is intended for personal and non-commercial use only.
+Attribution is included in this README and source code as required.
 
 ---
 
