@@ -1,16 +1,16 @@
 import { Logo } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Rafael",
+  lastName: "Teixeira",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: "Technical Support Consultant – Level II",
+  avatar: "/images/rafa-profile-pic.jpg",
+  email: "rafael@nerdstack.dev",
+  location: "America/Sao_Paulo", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["Portuguese", "English"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -18,8 +18,8 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about design, technology, and share thoughts on the
+      intersection of creativity and engineering.
     </>
   ),
 };
@@ -30,12 +30,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/rafactx",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/rafactxr/",
   },
   {
     name: "X",
@@ -58,12 +58,21 @@ const home = {
   headline: <>Building bridges between design and code</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+    title: (
+      <>
+        Recent project: <strong className="ml-4">Once UI</strong>
+      </>
+    ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
+      I'm Rafa, a Tech Support{" "}
+      <Logo
+        icon={false}
+        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
+      />
+      , where I craft intuitive
       <br /> user experiences. After hours, I build my own projects.
     </>
   ),
@@ -90,9 +99,14 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Customer Support expert with over 6 years of experience in SaaS seeking
+        a techsupport role where I can address customer issues, improve
+        products, and work across teams. I've deep expertise in APIs, SQL, log
+        analysis, and tools like Kibana, Elastic, Grafana, and Firebase, with an
+        eye for simplicity, durability, and real-world impact. I'm studying
+        Software Development and diving deeper into Swift, Next. js, TypeScript,
+        and Python. Passionate about clean code, excellent documentation, and
+        doing things that work and make sense.
       </>
     ),
   },
@@ -101,17 +115,29 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Involves",
+        timeframe: "December 2021 - Present",
+        role: "Technical Support Consultant – Level II",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Support a SaaS platform (Involves Stage) serving small to global
+            clients across LATAM, Canada and Europe.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Analyze logs using Kibana, Elastic, Firebase and Grafana to
+            investigate system behavior and identify issues.
+          </>,
+          <>
+            Troubleshoot issues with APIs and databases, guiding the team using
+            business logic context.
+          </>,
+          <>
+            Write MySQL queries to support root cause analysis and improve
+            internal documentation.
+          </>,
+          <>
+            Revamped outdated API documentation and contributed to chatbot
+            development for automation.
           </>,
         ],
         images: [
@@ -125,17 +151,57 @@ const about = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "TIVIT",
+        timeframe: "September 2021 - December 2021",
+        role: "Technical Support Analyst – Level II",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Supported a financial API for the Interbank Payment Clearinghouse
+            (CIP) with focus on data consistency and system reliability.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Monitored logs and system behavior in production to detect and
+            investigate critical failures.
+          </>,
+          <>
+            Wrote PostgreSQL queries to support incident resolution and perform
+            data validation.
+          </>,
+          <>
+            Triggered backup routines and coordinated corrective actions with
+            internal teams.
+          </>,
+          <>
+            Documented recurring issues and fixes to strengthen the internal
+            knowledge base.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Softplan",
+        timeframe: "January 2020 - July 2021",
+        role: "Technical Support Analyst – Public Sector Platform",
+        achievements: [
+          <>
+            Supported SAJ, a justice automation system used by courts across
+            Brazil.
+          </>,
+          <>
+            Investigated and reproduced critical bugs based on user reports in
+            controlled environments.
+          </>,
+          <>
+            Wrote SQL queries in Oracle, DB2 and SQL Server to analyze data and
+            validate integrity.
+          </>,
+          <>
+            Escalated incidents, tracked fixes and collaborated with dev teams
+            on resolutions.
+          </>,
+          <>
+            Contributed to the team’s knowledge base with patterns, insights and
+            documentation.
           </>,
         ],
         images: [],
@@ -147,12 +213,12 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Universidade Cruzeiro do Sul",
+        description: <>Studing software development.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Centro Universitário Cesusc",
+        description: <>Studied law.</>,
       },
     ],
   },
@@ -162,7 +228,9 @@ const about = {
     skills: [
       {
         title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        description: (
+          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -181,11 +249,55 @@ const about = {
       },
       {
         title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        description: (
+          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "TypeScript",
+        description: (
+          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+        ),
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-02.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/project-01/cover-03.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "SQL",
+        description: (
+          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+        ),
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-02.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/project-01/cover-03.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -265,4 +377,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { about, blog, gallery, home, newsletter, person, social, work };
