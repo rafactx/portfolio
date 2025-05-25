@@ -1,5 +1,3 @@
-import { Logo } from "@/once-ui/components";
-
 const person = {
   firstName: "Rafael",
   lastName: "Teixeira",
@@ -14,7 +12,7 @@ const person = {
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -55,25 +53,29 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: (
+    <>
+      Empowering clients, colleagues, and devs
+      <br />
+      through smarter support
+    </>
+  ),
   featured: {
     display: true,
     title: (
       <>
-        Recent project: <strong className="ml-4">Once UI</strong>
+        Recent project:{" "}
+        <strong className="ml-4">Involves Stage API Reference</strong>
       </>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/revamping-involves-stage-api-docs",
   },
   subline: (
     <>
-      I'm Rafa, a Tech Support{" "}
-      <Logo
-        icon={false}
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      Tech support isn't just fixing bugs.
+      <br />
+      It's building trust through solutions.
+      <br />I turn questions into insights and blockers into documentation.
     </>
   ),
 };
@@ -92,7 +94,7 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/rafactx",
   },
   intro: {
     display: true,
@@ -214,11 +216,45 @@ const about = {
     institutions: [
       {
         name: "Universidade Cruzeiro do Sul",
-        description: <>Studing software development.</>,
+        description: (
+          <>
+            Software Development
+            <br />
+            <strong>In progress</strong>
+            <br />
+            May 2025 – Present
+            <br />
+            Bachelor of Technology – BTech
+            <br />
+            <a
+              href="https://www.cruzeirodosul.edu.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.cruzeirodosul.edu.br/
+            </a>
+          </>
+        ),
       },
       {
         name: "Centro Universitário Cesusc",
-        description: <>Studied law.</>,
+        description: (
+          <>
+            Law
+            <br />
+            June 2015 – December 2018
+            <br />
+            Bachelor of Laws – LLB (interrupted)
+            <br />
+            <a
+              href="https://unicesusc.edu.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://unicesusc.edu.br/
+            </a>
+          </>
+        ),
       },
     ],
   },
@@ -307,74 +343,10 @@ const about = {
     ],
   },
 };
-
-const blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
-};
-
 const work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: "Some of my personal and professional projects.",
 };
-
-const gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
-};
-
-export { about, blog, gallery, home, newsletter, person, social, work };
+export { about, home, person, social, work };

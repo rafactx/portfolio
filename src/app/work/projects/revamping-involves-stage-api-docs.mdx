@@ -1,0 +1,45 @@
+---
+title: "Revamping Involves Stage API Docs"
+publishedAt: "2025-05-28"
+summary: "Redesign of the Involves Stage API documentation using Once UI and Redoc. Built with Next.js, MDX, and Tailwind, it delivers a clean, multi-language developer experience with interactive endpoint viewer powered by Redocly."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+  - "/images/projects/project-01/cover-02.jpg"
+  - "/images/projects/project-01/cover-03.jpg"
+  - "/images/projects/project-01/cover-04.jpg"
+team:
+  - name: "Rafael Teixeira"
+    role: "Technical Support Consultant"
+    avatar: "/images/rafa-profile-pic.jpg"
+    linkedIn: "https://www.linkedin.com/in/rafactxr/"
+---
+
+## Overview
+
+Redesign of the Involves Stage API documentation using Once UI and Redoc. Built with Next.js, MDX, and Tailwind, it delivers a clean, multi-language developer experience with an interactive endpoint viewer powered by Redocly.
+
+## Key Features
+
+- **Once UI Integration**: Custom implementation of Once UI to create a cohesive, developer-first interface with responsive layouts and dark mode by default.
+- **Redocly Redoc Viewer**: Embedded OpenAPI spec with a Redoc-powered viewer, enabling real-time exploration of endpoints with parameters, schemas and examples.
+- **MDX-Based Content**: All pages written in MDX for maximum flexibility, enabling mix of documentation and live components.
+- **Internationalization (i18n)**: Built-in support for four languages (pt-BR, en, es, fr) using dynamic content routing and JSON translation layers.
+- **Version Control Ready**: Designed to live in a Git-based workflow with preview deployments via Vercel and automatic OpenAPI updates.
+
+## Technologies Used
+
+- **Next.js**: Core framework for building the app with App Router and SSR capabilities.
+- **Once UI**: Design system built with Tailwind, offering rapid UI development with consistent theming.
+- **Redocly Redoc**: Interactive OpenAPI documentation viewer integrated directly in the interface.
+- **MDX**: To write rich content that mixes Markdown and JSX seamlessly.
+- **Tailwind CSS**: Utility-first CSS for rapid and consistent styling.
+- **pnpm**: Fast and disk-efficient package manager.
+- **Vercel**: Instant preview deployments and production hosting.
+
+## Challenges and Learnings
+
+One challenge was building a clean, dynamic navigation experience based on OpenAPI tags, while preserving MDX flexibility. This was solved by parsing the OpenAPI file and generating sidebar structures dynamically. Another key learning was optimizing multilingual support using lightweight JSON maps and contextual content loading to avoid bloating the client bundle.
+
+## Outcome
+
+The new API documentation transformed how external developers and internal teams interact with the Involves Stage platform. It reduced support load, enabled faster onboarding, and elevated the company’s tech branding by offering a premium Stripe-style experience for API consumers.

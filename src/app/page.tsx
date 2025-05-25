@@ -1,26 +1,41 @@
-import React from "react";
+import {
+  Badge,
+  Button,
+  Column,
+  Heading,
+  RevealFx,
+  Row,
+  Text,
+} from "@/once-ui/components";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
-import { Projects } from "@/components/work/Projects";
-
-import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
-import { Mailchimp } from "@/components";
-import { Posts } from "@/components/blog/Posts";
+import { baseURL } from "@/app/resources";
+import { about, home, person } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 
+// Metadata para SEO (Next.js App Router)
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
     description: home.description,
-    baseURL: baseURL,
+    baseURL,
     path: home.path,
   });
 }
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column
+      // Layout principal: ocupa viewport inteira com responsividade real
+      style={{
+        height: "100dvh",
+        paddingTop: "clamp(64px, 10vh, 96px)", // adapta a altura do header ao viewport
+        paddingInline: "clamp(16px, 5vw, 48px)", // padding lateral fluido
+        boxSizing: "border-box",
+        overflow: "hidden", // previne scroll causado por animações
+      }}
+      horizontal="center"
+    >
+      {/* SEO com dados estruturados */}
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -34,66 +49,82 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth paddingY="24" gap="m">
-        <Column maxWidth="s">
-          {home.featured && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
+
+      <Column
+        gap="m"
+        align="center"
+        horizontal="center"
+        style={{
+          textAlign: "center",
+          maxWidth: "720px",
+          alignSelf: "center",
+          width: "100%", // garante responsividade em mobile
+        }}
+      >
+        {/* Destaque inicial (projeto em destaque) */}
+        {home.featured && (
+          <RevealFx
+            fillWidth
+            horizontal="center"
+            paddingTop="0"
+            paddingBottom="16"
+          >
+            <Badge
+              background="brand-alpha-weak"
+              paddingX="12"
+              paddingY="4"
+              onBackground="neutral-strong"
+              textVariant="label-default-s"
+              arrow={false}
+              href={home.featured.href}
+            >
               <Row paddingY="2">{home.featured.title}</Row>
             </Badge>
           </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
-        </Column>
+        )}
+
+        {/* Headline principal com animação suave */}
+        <RevealFx translateY="4" horizontal="center" paddingBottom="8">
+          <Heading variant="display-strong-l" className="text-center">
+            {home.headline}
+          </Heading>
+        </RevealFx>
+
+        {/* Subtítulo com leve atraso na animação */}
+        <RevealFx
+          translateY="8"
+          delay={0.2}
+          horizontal="center"
+          paddingBottom="16"
+        >
+          <Text
+            onBackground="neutral-weak"
+            variant="heading-default-xl"
+            className="text-center"
+          >
+            {home.subline}
+          </Text>
+        </RevealFx>
+
+        {/* Botão de ação principal */}
+        <RevealFx
+          paddingTop="8"
+          paddingBottom="0"
+          delay={0.4}
+          horizontal="center"
+        >
+          <Button
+            id="about"
+            data-border="rounded"
+            href={about.path}
+            variant="secondary"
+            size="m"
+            arrowIcon
+          >
+            About Me
+          </Button>
+        </RevealFx>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }

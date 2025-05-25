@@ -1,3 +1,11 @@
+import { baseURL } from "@/app/resources";
+import { about, person, social } from "@/app/resources/content";
+import FrostSection from "@/components/FrostSection";
+import ParagraphGroup from "@/components/ParagraphGroup";
+import SectionGroup from "@/components/SectionGroup";
+import TextBlock from "@/components/TextBlock";
+import TableOfContents from "@/components/about/TableOfContents";
+import styles from "@/components/about/about.module.scss";
 import {
   Avatar,
   Button,
@@ -10,12 +18,8 @@ import {
   Tag,
   Text,
 } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
-import { person, about, social } from "@/app/resources/content";
-import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
+import React from "react";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -128,7 +132,11 @@ export default function About() {
                 marginBottom="m"
                 vertical="center"
               >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+                <Icon
+                  paddingLeft="12"
+                  name="calendar"
+                  onBackground="brand-weak"
+                />
                 <Flex paddingX="8">Schedule a call</Flex>
                 <IconButton
                   href={about.calendar.link}
@@ -149,98 +157,111 @@ export default function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth data-border="rounded">
+              <Flex
+                className={styles.blockAlign}
+                paddingTop="20"
+                paddingBottom="8"
+                gap="8"
+                wrap
+                horizontal="center"
+                fitWidth
+                data-border="rounded"
+              >
                 {social.map(
                   (item) =>
                     item.link && (
-                        <React.Fragment key={item.name}>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </React.Fragment>
-                    ),
+                      <React.Fragment key={item.name}>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </React.Fragment>
+                    )
                 )}
               </Flex>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
-            </Column>
+            <SectionGroup id="intro" title={about.intro.title}>
+              <FrostSection>
+                <ParagraphGroup content={about.intro.description} justify />
+              </FrostSection>
+            </SectionGroup>
           )}
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                as="h2"
+                id={about.work.title}
+                variant="display-strong-s"
+                marginBottom="xs"
+              >
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+
+              <Column fillWidth gap="2" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
+                  <FrostSection
+                    key={`${experience.company}-${experience.role}-${index}`}
+                  >
+                    <Column fillWidth>
+                      <Flex
+                        fillWidth
+                        horizontal="space-between"
+                        vertical="end"
+                        marginBottom="4"
+                      >
                         <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${index}`}
+                          id={experience.company}
+                          variant="heading-strong-l"
                         >
-                          {achievement}
+                          {experience.company}
                         </Text>
-                      ))}
-                    </Column>
-                    {experience.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
-                        {experience.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
-                          >
-                            <SmartImage
-                              enlarge
-                              radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
+                        <Text
+                          variant="heading-default-xs"
+                          onBackground="neutral-weak"
+                        >
+                          {experience.timeframe}
+                        </Text>
                       </Flex>
-                    )}
-                  </Column>
+
+                      <Text
+                        variant="body-default-s"
+                        onBackground="brand-weak"
+                        marginBottom="m"
+                      >
+                        {experience.role}
+                      </Text>
+
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: JSX.Element, index: number) => (
+                            <TextBlock
+                              as="li"
+                              key={`${experience.company}-${index}`}
+                            >
+                              {achievement}
+                            </TextBlock>
+                          )
+                        )}
+                      </Column>
+                    </Column>
+                  </FrostSection>
                 ))}
               </Column>
             </>
@@ -248,19 +269,32 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                as="h2"
+                id={about.studies.title}
+                variant="display-strong-s"
+                marginBottom="m"
+              >
                 {about.studies.title}
               </Heading>
+
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
+                  <FrostSection key={`${institution.name}-${index}`}>
+                    <Column fillWidth gap="4">
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+
+                      <TextBlock
+                        variant="heading-default-xs"
+                        justify={false} // 👈 texto à esquerda
+                        style={{ color: "var(--on-background-neutral-weak)" }}
+                      >
+                        {institution.description}
+                      </TextBlock>
+                    </Column>
+                  </FrostSection>
                 ))}
               </Column>
             </>
@@ -276,40 +310,49 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
+
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
-                          >
-                            <SmartImage
-                              enlarge
+                  <FrostSection key={`${skill.title}-${index}`}>
+                    <Column fillWidth gap="4">
+                      <Text variant="heading-strong-l">{skill.title}</Text>
+                      <Text
+                        variant="body-default-m"
+                        onBackground="neutral-weak"
+                        wrap="balance"
+                        style={{ textAlign: "justify" }}
+                      >
+                        {skill.description}
+                      </Text>
+
+                      {skill.images && skill.images.length > 0 && (
+                        <Flex fillWidth paddingTop="m" gap="12" wrap>
+                          {skill.images.map((image, index) => (
+                            <Flex
+                              key={index}
+                              border="neutral-medium"
                               radius="m"
                               //@ts-ignore
-                              sizes={image.width.toString()}
+                              minWidth={image.width}
                               //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
+                              height={image.height}
+                            >
+                              <SmartImage
+                                enlarge
+                                radius="m"
+                                //@ts-ignore
+                                sizes={image.width.toString()}
+                                //@ts-ignore
+                                alt={image.alt}
+                                //@ts-ignore
+                                src={image.src}
+                              />
+                            </Flex>
+                          ))}
+                        </Flex>
+                      )}
+                    </Column>
+                  </FrostSection>
                 ))}
               </Column>
             </>
