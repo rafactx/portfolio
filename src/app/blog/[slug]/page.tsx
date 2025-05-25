@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+/*import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
 import { AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } from "@/once-ui/components";
@@ -105,4 +105,4 @@ export default async function Blog({
     </Column>
     </Row>
   );
-}
+}*/
